@@ -4,14 +4,16 @@ import { Game } from '../../models/game';
 import { PlayerComponent } from '../player/player.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+
 
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatDialog, MatDialogModule],
+  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatDialogModule, DialogAddPlayerComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
@@ -43,7 +45,7 @@ export class GameComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
     });
   }
