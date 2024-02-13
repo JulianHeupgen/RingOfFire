@@ -33,6 +33,12 @@ export class GameComponent {
         this.currentCard = cardFromStack;
       }
       this.pickCardAnimation = true;
+
+      if(this.game.currentPlayer == this.game.players.length - 1) {
+        this.game.currentPlayer = 0;
+      } else {
+        this.game.currentPlayer++;
+      }
     
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard);
